@@ -5,79 +5,114 @@ Before long, you hear a strange grumbling noise. A troll appears out of the fog,
 */
 
 
-// declaring functions for each decision point:
+// Setting totalScore counter to 0. Declaring functions for each decision point:
 
-function decision1 (answer1) {
-  answer1 = prompt(promptArray[0]);
+var totalScore=0;
+
+
+function decision1 () {
+  var answer1 = prompt(promptArray[0]);
 
   if (answer1.toUpperCase()==="TALL TREES") {
     alert(tallTrees.message);
     totalScore += tallTrees.score;
-    prompt(promptArray[1]);
+    decision2();
   } else if (answer1.toUpperCase()==="BUSHES") {
     alert(bushes.message);
     totalScore += bushes.score;
-    prompt(promptArray[2]);
+    decision3();
   }
 }
 
-function decision2 (answer2) {
-  answer2 = prompt(promptArray[1]);
+function decision2 () {
+  var answer2 = prompt(promptArray[1]);
 
   if (answer2.toUpperCase()==="SWAMP") {
     alert(swamp.message);
     totalScore += swamp.score;
-    prompt(promptArray[3]);
+    decision4();
 
   } else if (answer2.toUpperCase()==="FIREWOOD") {
     alert(firewood.message);
     totalScore += firewood.score;
-    prompt(promptArray[5]);
+    finalMessage();
+    return;
   }
 }
 
-function decision3 (answer3) {
-  answer3 = prompt(promptArray[2]);
+function decision3 () {
+  var answer3 = prompt(promptArray[2]);
 
   if (answer3.toUpperCase()==="CLEARING") {
     alert(clearing.message);
     totalScore += clearing.score;
-    prompt(promptArray[4]);
+    decision5();
 
   } else if (answer3.toUpperCase()==="SWAMP") {
     alert(swamp.message);
     totalScore += swamp.score;
-    prompt(promptArray[3]);
+    decision4();
   }
 }
 
-function decision4 (answer4) {
-  answer4 = prompt(promptArray[3]);
+function decision4 () {
+  var answer4 = prompt(promptArray[3]);
 
   if (answer4.toUpperCase()==="MOSS") {
     alert(moss.message);
     totalScore += moss.score;
     prompt(promptArray[5]);
+    finalMessage();
+    return;
   } else if (answer4.toUpperCase()==="FERNS") {
     alert(ferns.message);
     totalScore += ferns.score;
     prompt(promptArray[5]);
+    finalMessage();
+    return;
   }
 }
 
-function decision5 (answer5) {
-  answer5 = prompt(promptArray[4]);
+function decision5 () {
+  var answer5 = prompt(promptArray[4]);
 
   if (answer5.toUpperCase()==="STREAM") {
     alert(stream.message);
     totalScore += stream.score;
     prompt(promptArray[5]);
+    finalMessage();
+    return;
   } else if (answer5.toUpperCase()==="MOSS") {
     alert(moss.message);
     totalScore += moss.score;
     prompt(promptArray[5]);
+    finalMessage();
+    return;
   }
 }
+
+
+function finalMessage (totalScore) {
+  if (totalScore >= 5) {
+    prompt("Congratulations, you have enough candy to keep the troll happy. He is letting you pass. Have fun at the party!");
+
+  } else if (totalScore = 4) {
+    prompt("The troll says you nearly have enough candy. He will let you go to the party if you take him with you. You think that's a great idea - your friends will be impressed!");
+
+  } else {
+    prompt("Uh oh, the troll is not happy. He is sending you back to try again...");
+  }
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -148,11 +183,8 @@ var promptArray = [
 
 
 
-//  program:
+//  to initiate program:
 
-
-
-var totalScore=0;
 
 decision1();
 
